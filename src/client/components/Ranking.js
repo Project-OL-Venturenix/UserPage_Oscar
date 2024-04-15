@@ -1,14 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Rectangle} from 'recharts';
-import {Col} from 'react-bootstrap';
-import {faCircleCheck, faCircleXmark, faClock, faCrown} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {getUserTestCase} from "../api/UserTestCaseApi";
-import {getEventQuestions} from "../api/EventQuestionApi";
-import {getQuestions} from "../api/QuestionApi";
-import {getUserScoresByEventId} from "../api/UserScoresApi";
-import {getUserQuestionSubmit} from "../api/UserQuestionSubmit";
-import {getUserById} from "../api/UserApi";
+import { faCircleCheck, faCircleXmark, faClock, faCrown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useEffect, useState } from 'react';
+import { Col } from 'react-bootstrap';
+import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import { getUserScoresByEventId } from "../api/UserScoresApi";
 
 const Ranking = () => {
 

@@ -119,7 +119,7 @@ class Editor extends React.Component {
             console.log(this.props.question.questionId)
 
             const userScoreData = {
-                eventid: selectedEventId,
+                eventId: selectedEventId,
                 userid: loginUser.id,
                 questionid: this.props.question.questionId,
                 testcasePassTotal: localStorage.getItem('counter'),
@@ -175,7 +175,7 @@ class Editor extends React.Component {
     //             await addUserScores(loginUser.accessToken, userScoreData, userQuestionData);
     //         // }
     //
-    //         // Check if there is an existing record with the same eventid, questionid, and groupid
+    //         // Check if there is an existing record with the same eventId, questionid, and groupid
     //         // const existingRecord =  await this.checkExistingRecord();
     //         // console.log(existingRecord);
     //         // if (existingRecord) {
@@ -211,7 +211,7 @@ class Editor extends React.Component {
     //         const userScoreHandles = response.data;
     //         console.log(response)
     //         return userScoreHandles.find(handle =>
-    //             handle.eventid == parseInt(selectedEventId, 10) &&
+    //             handle.eventId == parseInt(selectedEventId, 10) &&
     //             handle.questionid === this.props.question.id &&
     //             handle.userid === loginUser.id
     //         );
@@ -229,7 +229,7 @@ class Editor extends React.Component {
     //             await createUserQuestionSubmit(loginUser.accessToken, userQuestionData);
     //         }
     //
-    //         //  Check if there is an existing record with the same eventid, questionid, and groupid
+    //         //  Check if there is an existing record with the same eventId, questionid, and groupid
     //         const existingRecord =  await this.checkExistingUserQuestionSubmitRecord();
     //         console.log(existingRecord);
     //         if (existingRecord) {

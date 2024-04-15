@@ -4,7 +4,7 @@ const baseUrl = DevConfig.baseUrl;
 export const addEventGroupUserQuestionHandle = async (accessToken, questionData)=> {
     try {
         const response = await axios.post(
-            `${baseUrl}/api/groupuserquestionhandle/add`,
+            `${baseUrl}/api/groupUserQuestionHandle/add`,
             questionData,
             {headers: {Authorization: `Bearer ${accessToken}`}}
         );
@@ -18,7 +18,7 @@ export const addEventGroupUserQuestionHandle = async (accessToken, questionData)
 export const getEventGroupUserQuestionHandle = async (accessToken)=> {
     try {
         const response = await axios.get(
-            `${baseUrl}/api/groupuserquestionhandles`,
+            `${baseUrl}/api/groupUserQuestionHandles`,
 
             {headers: {Authorization: `Bearer ${accessToken}`}}
         );
@@ -32,7 +32,7 @@ export const getEventGroupUserQuestionHandle = async (accessToken)=> {
 export const putEventGroupUserQuestionHandle = async (accessToken, id, questionData) => {
     try {
         const updatedResponse = await axios.put(
-            `${baseUrl}/api/groupuserquestionhandles/${id}`,
+            `${baseUrl}/api/groupUserQuestionHandles/${id}`,
             questionData,
             { headers: { Authorization: `Bearer ${accessToken}` } }
         );

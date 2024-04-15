@@ -39,9 +39,12 @@ app.get('/api', (req, res) => {
 });
 
 app.get('/api/file/:lang/:questionId', (req, res) => {
+  
   const language = req.params.lang;
   const { questionId } = req.params;
-  console.log(language);
+  console.log('language : ' + language);
+  //start convert json file 
+  
   FileApi.getFile(language, questionId, (content) => {
     const file = {
       lang: language,

@@ -1,21 +1,14 @@
-import React, {useContext, useEffect, useState} from 'react';
-import Editor from './Editor';
-import {Checkbox} from 'react-bootstrap';
-import TopNavBarTeam from './TopNavBarTeam';
-import {TeamContext} from "./App";
-import QuestionAreaTeam from "./QuestionAreaTeam";
-import {getEventQuestions} from "../api/EventQuestionApi";
-import {getQuestions, getQuestionsList} from "../api/QuestionApi";
-import {getEventGroups} from "../api/EventGroupApi";
-import {getGroupUsers} from "../api/GroupUserApi";
-import {getUserById} from "../api/UserApi";
+import React, { useEffect, useState } from 'react';
+import { getEventByid } from "../api/EventApi";
 import {
     addEventGroupUserQuestionHandle,
     getEventGroupUserQuestionHandle,
     putEventGroupUserQuestionHandle
 } from "../api/GroupQuestionHandleApi";
-import {getEventByid} from "../api/EventApi";
+import { getQuestionsListByEventId } from "../api/QuestionApi";
 import EditorTeam from "./EditorTeam";
+import QuestionAreaTeam from "./QuestionAreaTeam";
+import TopNavBarTeam from './TopNavBarTeam';
 
 function QuestionRowTeam() {
     const storedUser = JSON.parse(localStorage.getItem('loginUser'));
@@ -44,7 +37,7 @@ function QuestionRowTeam() {
     //         const eventGroups = response.data;
     //         console.log(eventGroups);
     //
-    //         const selectedEventGroups = eventGroups.filter(group => group.eventid === parseInt(selectedEventId, 10));
+    //         const selectedEventGroups = eventGroups.filter(group => group.eventId === parseInt(selectedEventId, 10));
     //         console.log("Selected Event ID:", parseInt(selectedEventId, 10));
     //         console.log("Filtered groups:", selectedEventGroups);
     //
@@ -104,7 +97,7 @@ function QuestionRowTeam() {
 
     const getEventQuestionList = async () => {
         try {
-            const response = await getQuestionsList(loginUser.accessToken, selectedEventId)
+            const response = await getQuestionsListByEventId(loginUser.accessToken, selectedEventId)
             setEventQuestionList(response.data);
             console.log(response)
         } catch (error) {
@@ -174,7 +167,7 @@ function QuestionRowTeam() {
                 await createEventGroupUserQuestionHandle(question);
             }
 
-            // Check if there is an existing record with the same eventid, questionid, and groupid
+            // Check if there is an existing record with the same eventId, questionid, and groupid
              const existingRecord = await checkExistingRecord(question.id, userGroupIds);
              console.log(existingRecord);
              if (existingRecord) {
@@ -197,7 +190,7 @@ function QuestionRowTeam() {
             const questionHandles = response.data;
             console.log(questionHandles)
             return questionHandles.find(handle =>
-                handle.eventid === parseInt(selectedEventId, 10) &&
+                handle.eventId === parseInt(selectedEventId, 10) &&
                 handle.questionid === questionId &&
                 handle.groupid == groupId
             );
@@ -229,7 +222,7 @@ function QuestionRowTeam() {
 
             // Update the current record with the new user.id
             const questionData = {
-                eventid: parseInt(selectedEventId, 10),
+                eventId: parseInt(selectedEventId, 10),
                 questionid: question.id,
                 groupid: userGroupIds[0],
                 userid: loginUser.id,
@@ -248,7 +241,7 @@ function QuestionRowTeam() {
             // Prepare the questionData object with necessary information
             console.log(userGroupIds)
             const questionData = {
-                eventid: parseInt(selectedEventId, 10),
+                eventId: parseInt(selectedEventId, 10),
                 questionid: question.id,
                 groupid: userGroupIds[0],
                 userid: loginUser.id,

@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {signUpUser} from "../api/AuthApi";
+import React, { useState } from 'react';
+import { signUpUser } from "../api/AuthApi";
 import logo from "./Logo.png";
 
 const SignupPage = () => {

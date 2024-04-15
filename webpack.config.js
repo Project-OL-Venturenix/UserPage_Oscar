@@ -85,14 +85,14 @@ const developmentConfig = merge([
 ]);
 
 module.exports = (env) => {
-  console.log(`env:`)
+  console.log('env:')
   console.log(env)
   if (env.production === true) {
-    console.log("production")
-    return merge(commonConfig, productionConfig );
+    console.log('production')
+    return merge(commonConfig, productionConfig);
   }
 
-  console.log("development")
+  console.log('development')
   const dev = merge(commonConfig, developmentConfig);
   console.log(dev);
   return dev;

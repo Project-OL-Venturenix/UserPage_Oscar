@@ -1,14 +1,10 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {Navbar} from 'react-bootstrap';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCircleUser} from '@fortawesome/free-solid-svg-icons';
-import {getEventQuestions} from "../api/EventQuestionApi";
-import {getQuestions} from "../api/QuestionApi";
-import {getEventUser, getEventUsers} from "../api/EventUserApi";
-import {getUsers} from "../api/UserApi";
-import {getEventByid, getEvents} from "../api/EventApi";
-import {signInUser} from "../api/AuthApi";
-import {Redirect} from "react-router-dom";
+import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useEffect, useState } from 'react';
+import { Navbar } from 'react-bootstrap';
+import { Redirect } from "react-router-dom";
+import { getEventByid } from "../api/EventApi";
+import { getEventUser } from "../api/EventUserApi";
 import CountdownTimer from "./Timer";
 
 export default function TopNavBar() {

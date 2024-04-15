@@ -1,11 +1,10 @@
-import React, {useContext, useEffect, useState} from 'react';
-import QuestionAreaIndividual from './QuestionAreaIndividual';
+import React, { useEffect, useState } from 'react';
+import { getEventByid } from "../api/EventApi";
+import { getEventUser } from "../api/EventUserApi";
+import { getQuestionsListByEventId } from "../api/QuestionApi";
 import Editor from './Editor';
+import QuestionAreaIndividual from './QuestionAreaIndividual';
 import TopNavBar from './TopNavBar';
-import {getQuestions, getQuestionsList} from "../api/QuestionApi";
-import {getEventQuestions} from "../api/EventQuestionApi";
-import {getEventByid} from "../api/EventApi";
-import {getEventUser} from "../api/EventUserApi";
 
 function QuestionRowIndividual() {
     const storedUser = JSON.parse(localStorage.getItem('loginUser'));
@@ -15,7 +14,7 @@ function QuestionRowIndividual() {
 
     const getEventQuestionList = async () => {
         try {
-            const response = await getQuestionsList(loginUser.accessToken, selectedEventId)
+            const response = await getQuestionsListByEventId(loginUser.accessToken, selectedEventId)
             setEventQuestionList(response.data);
             console.log(response)
         } catch (error) {
@@ -31,7 +30,7 @@ function QuestionRowIndividual() {
             const response1 = await getEventUser(loginUser.accessToken, selectedEventId)
             const eventUser = response1.data.firstName
             if (eventStatus === "O" && eventUser === loginUser.firstname) {
-                console.log(eventUser);
+                console.log('eventUser : ' + eventUser);
                 getEventQuestionList();
             }
         } catch (error) {

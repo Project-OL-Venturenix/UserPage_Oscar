@@ -48,7 +48,7 @@ export const getUserScores = async (accessToken)=> {
 export const getUserScoresByEventId = async (accessToken, id)=> {
     try {
         const response = await axios.get(
-            `${baseUrl}/api/usertestcases/eventid/${id}`,
+            `${baseUrl}/api/usertestcases/eventId/${id}`,
             {headers: {Authorization: `Bearer ${accessToken}`}}
         );
         return response;

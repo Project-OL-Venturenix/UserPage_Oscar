@@ -108,7 +108,7 @@ class EditorTeam extends React.Component {
             this.setState({response: res, executionTime});
 
             const userScoreData = {
-                eventid: selectedEventId,
+                eventId: selectedEventId,
                 userid: loginUser.id,
                 questionid: this.props.question.questionId,
                 testcasePassTotal: localStorage.getItem('counter'),

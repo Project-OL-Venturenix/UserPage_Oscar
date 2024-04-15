@@ -1,14 +1,10 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {Navbar} from 'react-bootstrap';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCircleUser} from '@fortawesome/free-solid-svg-icons';
-import {TeamContext} from './App';
-import {getEventUsers} from "../api/EventUserApi";
-import {getUserById, getUsers} from "../api/UserApi";
-import {getEventGroups} from "../api/EventGroupApi";
-import {getGroupUsers} from "../api/GroupUserApi";
-import {getEventByid} from "../api/EventApi";
-import {Redirect} from "react-router-dom";
+import { faCircleUser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useEffect, useState } from 'react';
+import { Navbar } from 'react-bootstrap';
+import { Redirect } from "react-router-dom";
+import { getEventByid } from "../api/EventApi";
+import { getGroupUsers } from "../api/GroupUserApi";
 import CountdownTimer from "./Timer";
 
 export default function TopNavBarTeam() {
@@ -37,7 +33,7 @@ export default function TopNavBarTeam() {
             const eventGroups = response.data.users;
             console.log(eventGroups);
             //
-            // const selectedEventGroups = eventGroups.filter(group => group.eventid === parseInt(selectedEventId, 10));
+            // const selectedEventGroups = eventGroups.filter(group => group.eventId === parseInt(selectedEventId, 10));
             // console.log("Selected Event ID:", parseInt(selectedEventId, 10));
             // console.log("Filtered groups:", selectedEventGroups);
             //
