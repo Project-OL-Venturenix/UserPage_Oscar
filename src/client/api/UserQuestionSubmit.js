@@ -1,9 +1,10 @@
 import axios from "axios";
-
+import DevConfig from "./DevConfig";
+const baseUrl = DevConfig.baseUrl;
 export const createUserQuestionSubmit = async (accessToken, userQuestionData)=> {
     try {
         const response = await axios.post(
-            `http://vtxlab-projectol-backend.ap-southeast-1.elasticbeanstalk.com:8080/api/userquestionsubmits`,
+            `${baseUrl}/api/userquestionsubmits`,
             userQuestionData,
             {headers: {Authorization: `Bearer ${accessToken}`}}
         );
@@ -17,7 +18,7 @@ export const createUserQuestionSubmit = async (accessToken, userQuestionData)=> 
 export const getUserQuestionSubmit = async (accessToken)=> {
     try {
         const response = await axios.get(
-            `http://vtxlab-projectol-backend.ap-southeast-1.elasticbeanstalk.com:8080/api/userquestionsubmits`,
+            `${baseUrl}/api/userquestionsubmits`,
             {headers: {Authorization: `Bearer ${accessToken}`}}
         );
         return response;

@@ -1,9 +1,10 @@
 import axios from "axios";
-
+import DevConfig from "./DevConfig";
+const baseUrl = DevConfig.baseUrl;
 export const getEventGroups = async (accessToken)=> {
     try {
         const response = await axios.get(
-            `http://vtxlab-projectol-backend.ap-southeast-1.elasticbeanstalk.com:8080/api/eventgroups`,
+            `${baseUrl}/api/eventgroups`,
             {headers: {Authorization: `Bearer ${accessToken}`}}
         );
         return response;

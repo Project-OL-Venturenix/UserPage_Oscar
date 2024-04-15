@@ -1,9 +1,10 @@
 import axios from "axios";
-
+import DevConfig from "./DevConfig";
+const baseUrl = DevConfig.baseUrl;
 export const putUserTestCase = async (accessToken, userTestCaseData)=> {
     try {
         const response = await axios.post(
-            `http://vtxlab-projectol-backend.ap-southeast-1.elasticbeanstalk.com:8080/api/usertestcases`,
+            `${baseUrl}/api/usertestcases`,
             userTestCaseData,
             {headers: {Authorization: `Bearer ${accessToken}`}}
         );
@@ -17,7 +18,7 @@ export const putUserTestCase = async (accessToken, userTestCaseData)=> {
 export const getUserTestCase = async (accessToken)=> {
     try {
         const response = await axios.get(
-            `http://vtxlab-projectol-backend.ap-southeast-1.elasticbeanstalk.com:8080/api/usertestcases`,
+            `${baseUrl}/api/usertestcases`,
             {headers: {Authorization: `Bearer ${accessToken}`}}
         );
         return response;

@@ -46,7 +46,7 @@ const commonConfig = merge([
 ]);
 
 const productionConfig = merge([
-  parts.loadEnv('https://code-editor-api-oqcj.onrender.com'),
+  parts.loadEnv('http://vtxlab-projectol-frontend-api.ap-southeast-1.elasticbeanstalk.com'),
 
   parts.extractCSS({
     use: 'css-loader',

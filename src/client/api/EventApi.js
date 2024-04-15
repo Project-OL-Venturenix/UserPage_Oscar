@@ -1,9 +1,11 @@
 import axios from "axios";
+import DevConfig from "./DevConfig";
 
+const baseUrl = DevConfig.baseUrl;
 export const getEvents = async (accessToken) => {
     try {
         const response = await axios.get(
-            `http://vtxlab-projectol-backend.ap-southeast-1.elasticbeanstalk.com:8080/api/events`,
+            `${baseUrl}/api/events`,
             {headers: {Authorization: `Bearer ${accessToken}`}}
         );
         return response;
@@ -17,7 +19,7 @@ export const getEvents = async (accessToken) => {
 export const getEventByid = async (accessToken, id) => {
     try {
         const response = await axios.get(
-            `http://vtxlab-projectol-backend.ap-southeast-1.elasticbeanstalk.com:8080/api/events/${id}`,
+            `${baseUrl}/api/events/${id}`,
             {headers: {Authorization: `Bearer ${accessToken}`}}
         );
         return response;
@@ -31,7 +33,7 @@ export const getEventByid = async (accessToken, id) => {
 export const putEventById = async (accessToken, id, status) => {
     try {
         const response = await axios.put(
-            `http://localhost:8081/api/events/${id}/${status}`,
+            `${baseUrl}/api/events/${id}/${status}`,
             {headers: {Authorization: `Bearer ${accessToken}`}}
         );
         return response;
